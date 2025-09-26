@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #3d4169; 
+            color: white; 
+            margin: 0; 
+            padding: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            text-align: center;
+        }
+        .container { 
+            max-width: 350px; 
+            padding: 30px; 
+            background-color: #d75f49; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
+        }
+        h1, h2 { 
+            margin-bottom: 20px; 
+        }
+        input { 
+            width: 100%; 
+            padding: 12px; 
+            margin: 10px 0; 
+            border: none; 
+            border-radius: 5px; 
+            background-color: #f9f9f9; 
+            color: #333; 
+            font-size: 16px; 
+        }
+        input:focus { 
+            outline: none; 
+            border: 2px solid #3d4169; 
+        }
+        button { 
+            width: 100%; 
+            padding: 12px; 
+            background-color: #3d4169; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 16px; 
+            transition: background-color 0.3s ease; 
+        }
+        button:hover { 
+            background-color: #62679e; 
+        }
+        a { 
+            color: #3d4169; 
+            text-decoration: none; 
+            font-weight: bold; 
+        }
+        a:hover { 
+            text-decoration: underline; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Online Music Class</h1>
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Name" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="login()">Log In</button>
+        <p>Don't have an account? <a href="register.html">Create a new account</a></p>
+    </div>
+
+    <!-- Add the script for the login functionality -->
+    <script>
+        async function login() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    if (!username || !password) {
+        alert('Please fill in both fields');
+        return;
+    }
+
+    try {
+        const response = await fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password }),
+        });
+
+        if (!response.ok) {
+            throw new Error('Login failed');
+        }
+
+        const message = await response.text();
+        alert(message);
+
+        // After successful login
+        alert("Join a class");
+        window.location.href = 'index.html'; // Redirect to the main page after login
+
+    } catch (error) {
+        console.error('Error during login:', error);
+        alert('Login failed. Please check your credentials and try again.');
+    }
+}
+
+    </script>
+</body>
+</html>

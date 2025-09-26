@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Register</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #3d4169; 
+            color: white; 
+            margin: 0; 
+            padding: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            text-align: center;
+        }
+        .header { 
+            margin-bottom: 20px; 
+        }
+        .container { 
+            max-width: 350px; 
+            padding: 30px; 
+            background-color: #d75f49; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
+        }
+        h1 { 
+            margin-bottom: 20px; 
+        }
+        input { 
+            width: 100%; 
+            padding: 12px; 
+            margin: 10px 0; 
+            border: none; 
+            border-radius: 5px; 
+            background-color: #f9f9f9; 
+            color: #333; 
+            font-size: 16px; 
+        }
+        input:focus { 
+            outline: none; 
+            border: 2px solid #3d4169; 
+        }
+        button { 
+            width: 100%; 
+            padding: 12px; 
+            background-color: #3d4169; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 16px; 
+            transition: background-color 0.3s ease; 
+        }
+        button:hover { 
+            background-color: #62679e; 
+        }
+        a { 
+            color: #3d4169; 
+            text-decoration: none; 
+            font-weight: bold; 
+        }
+        a:hover { 
+            text-decoration: underline; 
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Online Music Class</h1>
+    </div>
+    <div class="container">
+        <h2>Create an Account</h2>
+        <form id="registerForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Validate fields are not empty
+            if (!username || !email || !password) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            const user = { username, email, password };
+
+            // Send the registration data to the server
+            const response = await fetch('/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            });
+
+            const message = await response.text();
+            alert(message);
+
+            if (response.ok) {
+                // Redirect to the main page on successful registration
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>

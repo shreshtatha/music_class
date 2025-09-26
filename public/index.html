@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Online Music Class</title>
+</head>
+<body>
+    <nav>
+        <h1>Online Music Class</h1>
+        <ul>
+            <li><a href="main.html">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#opinion">Opinion</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <a href="login.html" class="btn">Login</a>
+            <a href="register.html" class="btn">Sign Up</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h2>Join Our Online Music Class!  <br>
+            <br>
+            <span style="color:#d75f49;">Music is life itself</span>
+        </h2>
+    </div>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <div class="about-box">
+            <p>Welcome to Inspiring Souls!</p>
+            <p> we harmonize passion, expertise, and innovation to bring you an unparalleled online music education experience. We take pride in being your gateway to a world of musical exploration, offering online classes in vocals, piano, and guitar for enthusiasts of all ages.</p>
+            <p>Our Musical Vision: We envision a world where the joy of music is accessible to everyone, transcending age and boundaries. We strive to cultivate a love for melody, nurture artistic expression, and empower individuals to find their unique voice in the vast symphony of life.</p>
+        </div>
+    </section>
+
+    <section id="schedule">
+        <h2>Upcoming Classes Schedule</h2>
+        <div class="schedule-list">
+            <div class="schedule-item">
+                <h3>Classical Music</h3>
+                <p>Mondays at 6 PM</p>
+            </div>
+            <div class="schedule-item">
+                <h3>Bollywood Songs</h3>
+                <p>Wednesdays at 5 PM</p>
+            </div>
+            <div class="schedule-item">
+                <h3>Folk Songs</h3>
+                <p>Fridays at 4 PM</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="teachers">
+        <h2>Choose Your Teachers</h2>
+    
+        <h3>Western Songs</h3>
+        <div class="teacher-card">
+            <img src="john.jpg" alt="John Doe">
+            <h3>John Doe</h3>
+            <p>Experience: 10 years</p>
+            <p>Rating: ★★★★☆</p> <!-- 4.0 -->
+            <button class="select-btn" onclick="selectTeacher('John Doe', 'message-john')">Select</button>
+            <p id="message-john" class="join-message"></p>
+            <p id="join-john" class="join-now" style="display: none;">
+                <button onclick="joinClass('John Doe')">Join Class Now</button>
+            </p>
+        </div>
+    
+        <div class="teacher-card">
+            <img src="jane.jpeg" alt="Jane Smith">
+            <h3>Jane Smith</h3>
+            <p>Experience: 8 years</p>
+            <p>Rating: ★★★★★</p> <!-- 5.0 -->
+            <button class="select-btn" onclick="selectTeacher('Jane Smith', 'message-jane')">Select</button>
+            <p id="message-jane" class="join-message"></p>
+            <p id="join-jane" class="join-now" style="display: none;">
+                <button onclick="joinClass('Jane Smith')">Join Class Now</button>
+            </p>
+        </div>
+    
+        <div class="teacher-card">
+            <img src="marly.jpeg" alt="Mark Lee">
+            <h3>Marly Lee</h3>
+            <p>Experience: 7 years</p>
+            <p>Rating: ★★★☆☆</p> <!-- 3.0 -->
+            <button class="select-btn" onclick="selectTeacher('Marly Lee', 'message-mark')">Select</button>
+            <p id="message-mark" class="join-message"></p>
+            <p id="join-mark" class="join-now" style="display: none;">
+                <button onclick="joinClass('Marly Lee')">Join Class Now</button>
+            </p>
+        </div>
+    
+        <h3>Bollywood Songs</h3>
+        <div class="teacher-card">
+            <img src="anu.jpeg" alt="Emily Davis">
+            <h3>Anu</h3>
+            <p>Experience: 9 years</p>
+            <p>Rating: ★★★★★</p> <!-- 5.0 -->
+            <button class="select-btn" onclick="selectTeacher('Anu', 'message-emily')">Select</button>
+            <p id="message-emily" class="join-message"></p>
+            <p id="join-emily" class="join-now" style="display: none;">
+                <button onclick="joinClass('Anu')">Join Class Now</button>
+            </p>
+        </div>
+    
+        <div class="teacher-card">
+            <img src="kritika.jpg" alt="Michael Brown">
+            <h3>Kritika</h3>
+            <p>Experience: 6 years</p>
+            <p>Rating: ★★★★☆</p> <!-- 4.0 -->
+            <button class="select-btn" onclick="selectTeacher('Kritika', 'message-michael')">Select</button>
+            <p id="message-michael" class="join-message"></p>
+            <p id="join-michael" class="join-now" style="display: none;">
+                <button onclick="joinClass('Kritika')">Join Class Now</button>
+            </p>
+        </div>
+    
+        <div class="teacher-card">
+            <img src="goutham.jpeg" alt="Sophia Wilson">
+            <h3>Goutham</h3>
+            <p>Experience: 5 years</p>
+            <p>Rating: ★★★★☆</p> <!-- 4.0 -->
+            <button class="select-btn" onclick="selectTeacher('Goutham', 'message-sophia')">Select</button>
+            <p id="message-sophia" class="join-message"></p>
+            <p id="join-sophia" class="join-now" style="display: none;">
+                <button onclick="joinClass('Goutham')">Join Class Now</button>
+            </p>
+        </div>
+    
+        <h3>Classical Music</h3>
+        <div class="classical-teachers">
+            <div class="teacher-card">
+                <h4>Hindusthani</h4>
+                <img src="mahima.jpeg" alt="Mahima Sharma">
+                <h3>Mahima Sharma</h3>
+                <p>Experience: 12 years</p>
+                <p>Rating: ★★★★☆</p> <!-- 4.0 -->
+                <button class="select-btn" onclick="selectTeacher('Mahima Sharma', 'message-rahul')">Select</button>
+                <p id="message-rahul" class="join-message"></p>
+                <p id="join-rahul" class="join-now" style="display: none;">
+                    <button onclick="joinClass('Mahima Sharma')">Join Class Now</button>
+                </p>
+            </div>
+    
+            <div class="teacher-card">
+                <h4>Carnatic</h4>
+                <img src="cr.jpeg" alt="Ananya Reddy">
+                <h3>Ananya Reddy</h3>
+                <p>Experience: 11 years</p>
+                <p>Rating: ★★★★★</p> <!-- 5.0 -->
+                <button class="select-btn" onclick="selectTeacher('Ananya Reddy', 'message-ananya')">Select</button>
+                <p id="message-ananya" class="join-message"></p>
+                <p id="join-ananya" class="join-now" style="display: none;">
+                    <button onclick="joinClass('Ananya Reddy')">Join Class Now</button>
+                </p>
+            </div>
+    
+            <div class="teacher-card">
+                <h4>Folk Songs</h4>
+                <img src="hindu.jpg" alt="Vikram Singh">
+                <h3>Vijitha Singh</h3>
+                <p>Experience: 9 years</p>
+                <p>Rating: ★★★☆☆</p> <!-- 3.0 -->
+                <button class="select-btn" onclick="selectTeacher('Vikram Singh', 'message-vikram')">Select</button>
+                <p id="message-vikram" class="join-message"></p>
+                <p id="join-vikram" class="join-now" style="display: none;">
+                    <button onclick="joinClass('Vikram Singh')">Join Class Now</button>
+                </p>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="opinion">
+        <h2>Student Opinions</h2>
+        <form id="opinionForm">
+            <input type="text" id="studentName" placeholder="Your Name" required>
+            <select id="classSection" required>
+                <option value="">Select Class Section</option>
+                <option value="western song">Western song</option>
+                <optgroup label="Classical Songs">
+                    <option value="Hindusthani">Hindusthani</option>
+                    <option value="Carnatic">Carnatic</option>
+                    <option value="Folk Songs">Folk Songs</option>
+                </optgroup>
+                <option value="Bollywood">Bollywood songs</option>
+            </select>
+            <textarea id="opinionMessage" placeholder="Share your opinion..." required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <br>
+        <br>
+
+        <div id="opinionsList">
+            <h1>Submitted Opinions</h1>
+            <br>
+            <ul id="opinions"></ul> <!-- List to display submitted opinions -->
+        </div>
+    </section>
+    
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Online Music Class. All rights reserved.</p>
+            <div class="footer-icons">
+                <a href="https://twitter.com" aria-label="Twitter" target="_blank">Twitter
+                    <i class="fab fa-twitter"></i>
+                </a>
+                
+                <br>
+                <a href="https://facebook.com" aria-label="Facebook" target="_blank">Facebook
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <br>
+                <a href="https://instagram.com" aria-label="Instagram" target="_blank">Instagram
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+
+
+    <script src="script.js"></script>
+
+   
+    
+</body>
+</html>
+
